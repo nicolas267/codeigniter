@@ -332,14 +332,12 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Gestion</span>
+            <i class="fa fa-dashboard"></i> <span>Gestion </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo site_url('categories/index'); ?>"><i class="fa fa-circle-o"></i> Categorias</a></li>
-            <li><a href="<?php echo site_url('products/index'); ?>"><i class="fa fa-circle-o"></i> productos</a></li>
             <li><a href="<?php echo site_url('users/index'); ?>"><i class="fa fa-circle-o"></i> Usuarios</a></li>
           </ul>
         </li>
@@ -373,6 +371,7 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>foto</th>
                   <th>name</th>
                   <th>lastname</th>
                   <th>email</th>
@@ -382,6 +381,7 @@
                 <tbody>
                 <?php foreach($users as $user) { ?>
                 <tr>
+                  <td><img src="<?php echo base_url().'images/'.$user->foto; ?>" height="100px" width="100px"></td>
                   <td><?php echo $user->name?></td>
                   <td><?php echo $user->lastname?></td>
                   <td><?php echo $user->email?></td>
@@ -395,6 +395,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
+                  <th>foto</th>
                   <th>name</th>
                   <th>lastname</th>
                   <th>email</th>
@@ -648,22 +649,7 @@
     })
   })
 </script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".editar").click(function(e) {
-     var user = e.target.accessKey;
-
-      $(window.location).attr('href','edit?usersId='+user+''); 
-
-    })
-
-    $(".borrar").click(function(e){
-      var user = e.target.accessKey;
-
-      $(window.location).attr('href','destroy?usersId='+user+'');
-
-    })
-  })
+<script type="text/javascript" src="<?php echo base_url().'assets/'; ?>dist/js/jquery_core.js">
 </script>
 </body>
 </html>
